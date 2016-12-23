@@ -37,8 +37,6 @@ import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 

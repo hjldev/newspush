@@ -24,10 +24,11 @@ import cn.hjl.newspush.di.module.ActivityModule;
 import cn.hjl.newspush.di.scope.ContextLife;
 import cn.hjl.newspush.di.scope.PerActivity;
 import cn.hjl.newspush.mvp.ui.activities.ChannelActivity;
-import cn.hjl.newspush.mvp.ui.activities.HomeActivity;
 import cn.hjl.newspush.mvp.ui.activities.NewsActivity;
 import cn.hjl.newspush.mvp.ui.activities.NewsDetailActivity;
 import cn.hjl.newspush.mvp.ui.activities.NewsPhotoDetailActivity;
+import cn.hjl.newspush.mvp.ui.activities.PhotoActivity;
+import cn.hjl.newspush.mvp.ui.activities.PhotoDetailActivity;
 import dagger.Component;
 
 /**
@@ -46,10 +47,11 @@ public interface ActivityComponent {
 
     Activity getActivity();
 
-    void inject(HomeActivity homeActivity);
     void inject(NewsActivity newsActivity);
     void inject(ChannelActivity channelActivity);
     void inject(NewsDetailActivity newsDetailActivity);
     void inject(NewsPhotoDetailActivity newsPhotoDetailActivity);
+    void inject(PhotoActivity photoActivity);
+    void inject(PhotoDetailActivity photoDetailActivity);
 
 }

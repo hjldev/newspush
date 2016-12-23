@@ -10,7 +10,7 @@ import android.view.View;
  * of all the SimpleClickListener. This implements all methods in the
  * {@link SimpleClickListener}
  */
-public abstract   class OnItemClickListener extends SimpleClickListener {
+public abstract class OnItemClickListener extends SimpleClickListener {
 
 
     @Override

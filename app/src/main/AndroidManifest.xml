@@ -31,6 +31,10 @@
             android:theme="@style/BaseAppTheme.NoTrans"/>
         <activity android:name=".mvp.ui.activities.NewsPhotoDetailActivity"
             android:theme="@style/BaseAppTheme.NoTrans"/>
+        <activity android:name=".mvp.ui.activities.PhotoActivity"
+            android:theme="@style/BaseAppTheme.NoTrans"/>
+        <activity android:name=".mvp.ui.activities.PhotoDetailActivity"
+            android:theme="@style/BaseAppTheme.NoTrans"/>
     </application>
 
 </manifest>

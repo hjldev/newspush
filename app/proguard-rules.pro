@@ -227,5 +227,8 @@ public static java.lang.String TABLENAME;
 -dontwar com.readystatesoftware.systembartint.**
 -keep class com.readystatesoftware.systembartint.**{ *;}
 
+-dontwarn com.squareup.picasso.**
+-keep class com.squareup.picasso.**{ *;}
+
 
 

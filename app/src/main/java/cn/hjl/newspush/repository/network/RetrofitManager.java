@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 import cn.hjl.newspush.App;
 import cn.hjl.newspush.common.ApiConstants;
 import cn.hjl.newspush.common.HostType;
+import cn.hjl.newspush.mvp.entity.GirlData;
 import cn.hjl.newspush.mvp.entity.NewsDetail;
 import cn.hjl.newspush.mvp.entity.NewsSummary;
 import cn.hjl.newspush.utils.Log;
@@ -230,7 +231,7 @@ public class RetrofitManager {
         return mNewsService.getNewsBodyHtmlPhoto(photoPath);
     }
 
-//    public Observable<GirlData> getPhotoListObservable(int size, int page) {
-//        return mNewsService.getPhotoList(size, page);
-//    }
+    public Observable<GirlData> getPhotoListObservable(int size, int page) {
+        return mNewsService.getPhotoList(size, page);
+    }
 }

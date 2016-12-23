@@ -29,4 +29,7 @@ public class Constants {
 
     // 跳转动画的标识
     public static final String TRANSITION_ANIMATION_NEWS_PHOTOS = "transition_animation_news_photos";
+
+
+    public static final String PHOTO_DETAIL_URL = "photo_detail_url";
 }

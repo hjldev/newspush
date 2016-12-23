@@ -66,6 +66,7 @@ public abstract class _Subscriber<T> extends Subscriber<T> {
         if (showDialog()){
             if (mContext != null){
                 dialog = new ProgressDialog(mContext);
+                dialog.setMessage(msg);
                 dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 dialog.setCancelable(true);
                 dialog.setCanceledOnTouchOutside(false);

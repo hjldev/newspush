@@ -191,6 +191,10 @@ public class NewsActivity extends BaseActivity
         if (id == R.id.nav_news) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            startNewActivity(PhotoActivity.class);
+            if (drawer.isDrawerOpen(GravityCompat.START)) {
+                drawer.closeDrawer(GravityCompat.START);
+            }
 
         } else if (id == R.id.nav_video) {
 

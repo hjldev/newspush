@@ -1,15 +1,19 @@
 package cn.hjl.newspush.mvp.ui;
 
 import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
@@ -157,6 +161,28 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         Intent intent = new Intent(this, cls);
         intent.putExtra(Constants.ACTIVITY_ARGS, bundle);
         startActivityForResult(intent, requestCode);
+    }
+
+    /**
+     * 转场动画
+     * @param view
+     * @param resId
+     * @param cls
+     * @param bundle
+     */
+    protected void startNewActivity(View view, int resId, Class<? extends BaseActivity> cls, Bundle bundle){
+        Intent intent = new Intent(this, cls);
+        intent.putExtra(Constants.ACTIVITY_ARGS, bundle);
+        ImageView newsSummaryPhotoIv = (ImageView) view.findViewById(resId);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions
+                    .makeSceneTransitionAnimation(this, newsSummaryPhotoIv, Constants.TRANSITION_ANIMATION_NEWS_PHOTOS);
+            startActivity(intent, options.toBundle());
+        } else {
+            ActivityOptionsCompat options = ActivityOptionsCompat
+                    .makeScaleUpAnimation(view, view.getWidth() / 2, view.getHeight() / 2, 0, 0);
+            ActivityCompat.startActivity(this, intent, options.toBundle());
+        }
     }
 
 

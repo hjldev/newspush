@@ -6,6 +6,7 @@
     android:background="?attr/colorPrimary"
     android:layout_height="?attr/actionBarSize"
     android:layout_width="match_parent"
+    android:id="@+id/toolbar"
     app:layout_scrollFlags="scroll|enterAlways"
     app:popupTheme="@style/AppTheme.PopupOverlay"
     app:titleTextColor="@color/color_white"

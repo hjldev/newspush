@@ -77,7 +77,6 @@ public class PhotoActivity extends BaseActivity implements SwipeRefreshLayout.On
         recyclerView.addOnItemTouchListener(new OnItemClickListener() {
             @Override
             public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Log.d("tagsOnClick");
                 String url = ((PhotoGirl)adapter.getItem(position)).getUrl();
                 Bundle bundle = new Bundle();
                 bundle.putString(Constants.PHOTO_DETAIL_URL, url);

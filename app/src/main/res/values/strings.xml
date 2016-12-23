@@ -10,7 +10,13 @@
     <string name="action_pic">图片</string>
     <string name="action_video">视频</string>
     <string name="action_setting">设置</string>
+    <string name="action_share">分享</string>
+    <string name="action_save">保存</string>
+    <string name="action_wallpaper">壁纸</string>
 
+    <string name="error_try_again">错误，请重试</string>
+    <string name="set_wallpaper_success">设置壁纸成功</string>
+    <string name="picture_already_save_to">图片已保存至%1$s</string>
     <string name="load_failed">加载失败，请点击重试</string>
     <string name="load_error">服务器无响应</string>
     <string name="main_page">主页</string>

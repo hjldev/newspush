@@ -25,6 +25,11 @@ public class ApiConstants {
     public static final String END_URL = "-20.html";
     public static final String ENDDETAIL_URL = "/full.html";
 
+    /**
+     * 视频 http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/10-10.html
+     */
+    public static final String HOST_VIDEO = "http://c.3g.163.com/";
+
     // 新闻详情
     public static final String NEWS_DETAIL = NETEAST_HOST + "nc/article/";
 
@@ -176,6 +181,8 @@ public class ApiConstants {
             case HostType.NEWS_DETAIL_HTML_PHOTO:
                 host = "http://kaku.com/";
                 break;
+            case HostType.VIDEO_HOST:
+                return HOST_VIDEO;
             default:
                 host = "";
                 break;

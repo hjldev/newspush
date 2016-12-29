@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_marginBottom="@dimen/item_margin"
+    >
+
+    <FrameLayout
+        android:id="@+id/video_cover_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/video_cover_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/video_duration_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="@dimen/item_margin"
+            android:layout_marginRight="@dimen/item_margin"
+            android:background="@drawable/post_img_count_bg"
+            android:gravity="center"
+            android:paddingLeft="@dimen/item_margin"
+            android:paddingRight="@dimen/item_margin"
+            android:textColor="@color/color_white"
+            android:textSize="9sp" />
+
+        <ImageView
+            android:id="@+id/video_play_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/video_play_btn"
+            />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/video_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="@dimen/item_margin"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/item_margin" />
+
+</FrameLayout>

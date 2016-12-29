@@ -37,14 +37,4 @@ public class TransformUtils {
             }
         };
     }
-
-    public static <T> Observable.Transformer<T, T> handleResult(){
-        return new Observable.Transformer<T, T>() {
-
-            @Override
-            public Observable<T> call(Observable<T> tObservable) {
-                return null;
-            }
-        };
-    }
 }

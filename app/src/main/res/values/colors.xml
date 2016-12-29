@@ -30,4 +30,6 @@
     <color name="alpha_10_black">#1A000000</color>
     <color name="alpha_15_black">#26000000</color>
     <color name="alpha_20_black">#33000000</color>
+
+    <color name="background_half_transparent">#96000000</color>
 </resources>

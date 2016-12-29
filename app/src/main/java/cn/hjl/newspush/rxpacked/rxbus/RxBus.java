@@ -18,7 +18,7 @@ public class RxBus {
 
     private final Map<Class<?>, Object> mStickyEventMap;
 
-    public RxBus() {
+    private RxBus() {
         mBus = new SerializedSubject<>(PublishSubject.create());
         mStickyEventMap = new ConcurrentHashMap<>();
     }

@@ -22,8 +22,6 @@ import cn.hjl.newspush.R;
 import cn.hjl.newspush.callback.RequestCallBack;
 import cn.hjl.newspush.common.Constants;
 import cn.hjl.newspush.rxpacked.TransformUtils;
-import cn.hjl.newspush.rxpacked._Subscriber;
-import cn.hjl.newspush.utils.Log;
 import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;

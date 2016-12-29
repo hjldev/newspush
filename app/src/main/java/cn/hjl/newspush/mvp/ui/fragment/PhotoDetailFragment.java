@@ -53,6 +53,7 @@ public class PhotoDetailFragment extends BaseFragment {
 
     @Override
     public void initInjector() {
+        mFragmentComponent.inject(this);
     }
 
     @Override

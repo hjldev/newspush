@@ -24,6 +24,9 @@ import cn.hjl.newspush.di.module.FragmentModule;
 import cn.hjl.newspush.di.scope.ContextLife;
 import cn.hjl.newspush.di.scope.PerFragment;
 import cn.hjl.newspush.mvp.ui.fragment.NewsListFragment;
+import cn.hjl.newspush.mvp.ui.fragment.PhotoDetailFragment;
+//import cn.hjl.newspush.mvp.ui.fragment.VideoListFragment;
+import cn.hjl.newspush.mvp.ui.fragment.VideoListFragment;
 import dagger.Component;
 
 /**
@@ -44,4 +47,6 @@ public interface FragmentComponent {
     Fragment getFragment();
 
     void inject(NewsListFragment newsListFragment);
+    void inject(PhotoDetailFragment photoDetailFragment);
+    void inject(VideoListFragment videoListFragment);
 }

@@ -19,7 +19,6 @@ package cn.hjl.newspush.di.component;
 import android.app.Activity;
 import android.content.Context;
 
-
 import cn.hjl.newspush.di.module.ActivityModule;
 import cn.hjl.newspush.di.scope.ContextLife;
 import cn.hjl.newspush.di.scope.PerActivity;
@@ -29,6 +28,7 @@ import cn.hjl.newspush.mvp.ui.activities.NewsDetailActivity;
 import cn.hjl.newspush.mvp.ui.activities.NewsPhotoDetailActivity;
 import cn.hjl.newspush.mvp.ui.activities.PhotoActivity;
 import cn.hjl.newspush.mvp.ui.activities.PhotoDetailActivity;
+import cn.hjl.newspush.mvp.ui.activities.VideoActivity;
 import dagger.Component;
 
 /**
@@ -53,5 +53,6 @@ public interface ActivityComponent {
     void inject(NewsPhotoDetailActivity newsPhotoDetailActivity);
     void inject(PhotoActivity photoActivity);
     void inject(PhotoDetailActivity photoDetailActivity);
+    void inject(VideoActivity videoActivity);
 
 }

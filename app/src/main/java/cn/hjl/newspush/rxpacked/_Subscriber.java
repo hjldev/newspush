@@ -1,14 +1,16 @@
 package cn.hjl.newspush.rxpacked;
 
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.widget.ProgressBar;
+import android.view.LayoutInflater;
+import android.view.View;
 
-import cn.hjl.newspush.utils.Log;
+import cn.hjl.newspush.R;
 import cn.hjl.newspush.utils.MyUtils;
-import cn.hjl.newspush.utils.NetUtils;
+import cn.hjl.newspush.widget.loadview.AVLoadingIndicatorView;
 import rx.Subscriber;
 
 /**
@@ -18,32 +20,34 @@ import rx.Subscriber;
 public abstract class _Subscriber<T> extends Subscriber<T> {
 
     private Context mContext;
-    private ProgressDialog dialog;
+    //    private ProgressDialog dialog;
     private String msg;
     private boolean showDialog = false;
 
+    private Dialog dialog;
 
-    protected boolean showDialog(){
+
+    protected boolean showDialog() {
         return showDialog;
     }
 
-    public _Subscriber(Context context, String msg, boolean showDialog){
+    public _Subscriber(Context context, String msg, boolean showDialog) {
         this.mContext = context;
         this.msg = msg;
         this.showDialog = showDialog;
     }
 
-    public _Subscriber(Context context){
+    public _Subscriber(Context context) {
         this(context, "请稍后...", false);
     }
 
-    public _Subscriber(Context context, boolean showDialog){
+    public _Subscriber(Context context, boolean showDialog) {
         this(context, "请稍后...", showDialog);
     }
 
     @Override
     public void onCompleted() {
-        if (showDialog() && dialog != null){
+        if (showDialog() && dialog != null) {
             dialog.dismiss();
         }
     }
@@ -55,19 +59,19 @@ public abstract class _Subscriber<T> extends Subscriber<T> {
 
         _onError(MyUtils.analyzeNetworkError(e));
 
-        if (showDialog() && dialog != null){
-                dialog.dismiss();
+        if (dialog != null && showDialog()) {
+            dialog.dismiss();
         }
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        if (showDialog()){
-            if (mContext != null){
+        if (showDialog()) {
+            if (mContext != null) {
+                View layout = LayoutInflater.from(mContext).inflate(R.layout.progress_common_indicator, null);
+                ((AVLoadingIndicatorView) layout.findViewById(R.id.indicator)).setIndicator("BallClipRotateMultipleIndicator");
                 dialog = new ProgressDialog(mContext);
-                dialog.setMessage(msg);
-                dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 dialog.setCancelable(true);
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
@@ -81,6 +85,24 @@ public abstract class _Subscriber<T> extends Subscriber<T> {
                     }
                 });
                 dialog.show();
+                dialog.setContentView(layout);
+
+//                dialog = new ProgressDialog(mContext);
+//                dialog.setMessage(msg);
+//                dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//                dialog.setCancelable(true);
+//                dialog.setCanceledOnTouchOutside(false);
+//                dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+//                    @Override
+//                    public void onCancel(DialogInterface dialog) {
+//                        if (!isUnsubscribed()){
+//                            // 当取消加载，给个方法进行取消网络请求
+//                            unSubscribe();
+//                            unsubscribe();
+//                        }
+//                    }
+//                });
+//                dialog.show();
             }
 
         }
@@ -90,7 +112,7 @@ public abstract class _Subscriber<T> extends Subscriber<T> {
      * 当取消订阅时执行此方法
      * 一般用于取消网络请求返回状态
      */
-    public void unSubscribe(){
+    public void unSubscribe() {
 
     }
 
@@ -99,8 +121,6 @@ public abstract class _Subscriber<T> extends Subscriber<T> {
     public void onNext(T o) {
         _onNext(o);
     }
-
-
 
 
     protected abstract void _onNext(T t);

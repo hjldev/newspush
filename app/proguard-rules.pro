@@ -230,5 +230,8 @@ public static java.lang.String TABLENAME;
 -dontwarn com.squareup.picasso.**
 -keep class com.squareup.picasso.**{ *;}
 
+-dontwarn uk.co.senab.photoview.**
+-keep class uk.co.senab.photoview.**{ *;}
+
 
 

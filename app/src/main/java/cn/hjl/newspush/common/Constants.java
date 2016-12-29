@@ -34,4 +34,6 @@ public class Constants {
     public static final String PHOTO_DETAIL_URL = "photo_detail_url";
 
     public static final String SAVE_FILE_IMAGE_URL = "/news_push/photo/";
+
+    public static final String VIDEO_CHANNLE_ID = "video_channel_id";
 }

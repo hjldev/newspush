@@ -17,6 +17,7 @@ import cn.hjl.newspush.common.HostType;
 import cn.hjl.newspush.mvp.entity.GirlData;
 import cn.hjl.newspush.mvp.entity.NewsDetail;
 import cn.hjl.newspush.mvp.entity.NewsSummary;
+import cn.hjl.newspush.mvp.entity.VideoData;
 import cn.hjl.newspush.utils.Log;
 import cn.hjl.newspush.utils.NetUtils;
 import okhttp3.Cache;
@@ -75,7 +76,7 @@ public class RetrofitManager {
                             .readTimeout(6, TimeUnit.SECONDS)
                             .writeTimeout(6, TimeUnit.SECONDS)
                             .connectTimeout(6, TimeUnit.SECONDS)
-//                            .addInterceptor(mRewriteCacheControlInterceptor)
+                            .addInterceptor(mRewriteCacheControlInterceptor)
                             .addNetworkInterceptor(mRewriteCacheControlInterceptor)
                             .addInterceptor(mLoggingInterceptor)
                             .build();
@@ -233,5 +234,9 @@ public class RetrofitManager {
 
     public Observable<GirlData> getPhotoListObservable(int size, int page) {
         return mNewsService.getPhotoList(size, page);
+    }
+
+    public Observable<Map<String,List<VideoData>>> getVideoList(String videoType, int startPage){
+        return mNewsService.getVideoList(getCacheControl(), videoType, startPage);
     }
 }

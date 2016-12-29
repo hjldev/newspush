@@ -197,7 +197,10 @@ public class NewsActivity extends BaseActivity
             }
 
         } else if (id == R.id.nav_video) {
-
+            startNewActivity(VideoActivity.class);
+            if (drawer.isDrawerOpen(GravityCompat.START)) {
+                drawer.closeDrawer(GravityCompat.START);
+            }
         } else if (id == R.id.nav_setting) {
 
         } else if (id == R.id.nav_share) {

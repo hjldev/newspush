@@ -6,6 +6,7 @@ import java.util.Map;
 import cn.hjl.newspush.mvp.entity.GirlData;
 import cn.hjl.newspush.mvp.entity.NewsDetail;
 import cn.hjl.newspush.mvp.entity.NewsSummary;
+import cn.hjl.newspush.mvp.entity.VideoData;
 import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.HEAD;
@@ -39,4 +40,17 @@ public interface NewsService {
     Observable<GirlData> getPhotoList(
             @Path("size") int size,
             @Path("page") int page);
+
+    /**
+     * 获取视频
+     * @param cacheControl
+     * @param videoType
+     * @param startPage
+     * @return
+     */
+    @GET("nc/video/list/{videoType}/n/{startPage}-10.html")
+    Observable<Map<String,List<VideoData>>> getVideoList(
+            @Header("Cache-Control") String cacheControl,
+            @Path("videoType") String videoType,
+            @Path("startPage") int startPage);
 }

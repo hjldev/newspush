@@ -48,9 +48,14 @@ public class HostType {
     public static final int NEWS_DETAIL_HTML_PHOTO = 3;
 
     /**
+     *  网易视频的 Host
+     */
+    public static final int VIDEO_HOST = 5;
+
+    /**
      * 替代枚举的方案，使用IntDef保证类型安全
      */
-    @IntDef({NETEASE_NEWS_VIDEO, GANK_GIRL_PHOTO, NEWS_DETAIL_HTML_PHOTO})
+    @IntDef({NETEASE_NEWS_VIDEO, GANK_GIRL_PHOTO, NEWS_DETAIL_HTML_PHOTO, VIDEO_HOST})
     @Retention(RetentionPolicy.SOURCE)
     public @interface HostTypeChecker {
 

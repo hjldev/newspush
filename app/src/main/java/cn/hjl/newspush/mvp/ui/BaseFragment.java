@@ -29,6 +29,7 @@ import cn.hjl.newspush.di.component.FragmentComponent;
 import cn.hjl.newspush.di.module.FragmentModule;
 import cn.hjl.newspush.di.scope.ContextLife;
 import cn.hjl.newspush.mvp.presenter.BasePresenter;
+import cn.hjl.newspush.mvp.view.BaseView;
 import cn.hjl.newspush.utils.MyUtils;
 import cn.hjl.newspush.utils.Toastor;
 import rx.Subscription;
@@ -36,7 +37,7 @@ import rx.Subscription;
 /**
  * Created by fastabler on 2016/11/5.
  */
-public abstract class BaseFragment<T extends BasePresenter> extends Fragment {
+public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements BaseView{
 
     public FragmentComponent getFragmentComponent() {
         return mFragmentComponent;
@@ -63,8 +64,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment {
     private boolean isInvisible = false;
     private boolean isReady = false;
 
-
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,18 +81,11 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment {
             mFragmentView = inflater.inflate(getLayoutId(), container, false);
             ButterKnife.bind(this, mFragmentView);
             initViews(mFragmentView);
-
+            isReady = true;
+            delayLoad();
 //            mPresenter.onCreate(getActivity());
         }
         return mFragmentView;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        isReady = true;
-        delayLoad();
-
     }
 
     @Override
@@ -119,6 +111,11 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment {
 
         }
         isFirstLoad = false;
+    }
+
+    @Override
+    public void showMsg(String msg) {
+        toastor.showSingletonToast(msg);
     }
 
     @Override
